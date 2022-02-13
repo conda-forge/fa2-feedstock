@@ -11,8 +11,13 @@ source:
   sha256: 9a12e0a7dc228999c605beaae751424ec4a4f60281f44683c0744a72fc9141ef
 
 build:
-  number: 0
-  script: {{ PYTHON }} -m pip install . -vv
+  number: 1
+  script:
+    # Delete old generated c file so that cython can generate new ones
+    # Otherwise, it will be incompatible with python 3.9+
+    - rm -f fa2/fa2util.c    # [unix]
+    - del /f /q fa2\fa2util.c   # [win]
+    - {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
