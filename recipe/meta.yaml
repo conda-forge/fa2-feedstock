@@ -16,7 +16,7 @@ build:
     # Delete old generated c file so that cython can generate new ones
     # Otherwise, it will be incompatible with python 3.9+
     - rm -f fa2/fa2util.c    # [unix]
-    - del /f /q fa2/fa2util.c   # [win]
+    - del /f /q fa2\fa2util.c   # [win]
     - {{ PYTHON }} -m pip install . -vv
 
 requirements:
