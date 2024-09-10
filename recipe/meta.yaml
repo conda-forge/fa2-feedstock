@@ -11,7 +11,7 @@ source:
   sha256: 9a12e0a7dc228999c605beaae751424ec4a4f60281f44683c0744a72fc9141ef
 
 build:
-  number: 2
+  number: 3
   script:
     # Delete old generated c file so that cython can generate new ones
     # Otherwise, it will be incompatible with python 3.9+
@@ -22,6 +22,7 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
   host:
     - cython
     - pip
